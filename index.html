@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SportDex : recherche de sportifs et d'équipes avec l'API TheSportsDB." />
+  <title>SportDex — API Sport</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Projet GitHub Pages + TheSportsDB API</p>
+        <h1>SportDex</h1>
+        <p class="subtitle">Recherche un sportif ou une équipe et découvre sa discipline, sa nationalité, son club, son poste et sa fiche détaillée.</p>
+      </div>
+      <div class="hero-badge" aria-hidden="true">🏆</div>
+    </header>
+
+    <main>
+      <section class="controls" aria-label="Recherche sportive">
+        <div class="search-box">
+          <input id="searchInput" type="search" placeholder="Ex. Lionel Messi, Arsenal, LeBron James…" autocomplete="off" />
+          <select id="searchType" aria-label="Type de recherche">
+            <option value="player">Sportif</option>
+            <option value="team">Équipe</option>
+          </select>
+          <button id="searchButton" type="button">Rechercher</button>
+        </div>
+        <button id="randomButton" class="secondary-button" type="button">🎲 Au hasard</button>
+      </section>
+
+      <p id="status" class="status" aria-live="polite"></p>
+
+      <section>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Sélection</p>
+            <h2>Stars du sport</h2>
+          </div>
+          <button id="loadMoreButton" class="ghost-button" type="button">Afficher plus</button>
+        </div>
+        <div id="sportGrid" class="pokemon-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="sportDialog" class="pokemon-dialog">
+    <button id="closeDialogButton" class="close-button" type="button" aria-label="Fermer">×</button>
+    <div id="sportDetails"></div>
+  </dialog>
+
+  <template id="sportCardTemplate">
+    <article class="pokemon-card">
+      <div class="card-topline">
+        <span class="sport-id"></span>
+        <span class="card-arrow">↗</span>
+      </div>
+      <img class="pokemon-image" src="" alt="" loading="lazy" />
+      <div class="card-content">
+        <h3 class="pokemon-name"></h3>
+        <div class="pokemon-types"></div>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
